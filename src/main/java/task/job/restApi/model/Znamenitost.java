@@ -4,7 +4,7 @@ package task.job.restApi.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Znamenitost")
+@Table(name="znamenitosti")
 public class Znamenitost {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
