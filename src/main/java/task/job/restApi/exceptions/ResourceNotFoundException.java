@@ -1,4 +1,4 @@
-package exceptions;
+package task.job.restApi.exceptions;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 

@@ -1,11 +1,11 @@
-package service;
+package task.job.restApi.service;
 
-import exceptions.ResourceNotFoundException;
-import model.Znamenitost;
+import task.job.restApi.exceptions.ResourceNotFoundException;
+import task.job.restApi.model.Znamenitost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.ZnamenitostRepository;
+import task.job.restApi.repository.ZnamenitostRepository;
 
 import javax.swing.text.html.Option;
 import java.lang.module.ResolutionException;
@@ -19,7 +19,10 @@ public class ZnamenitostServiceImpl implements ZnamenitostService{
     @Autowired
     private ZnamenitostRepository znamenitostRepository;
 
-
+    @Override
+    public Znamenitost createZnamenitost(Znamenitost znamenitost) {
+        return this.znamenitostRepository.save(znamenitost);
+    }
     @Override
     public List<Znamenitost> getAllZnamenitosti() {
         return this.znamenitostRepository.findAll();
@@ -35,10 +38,7 @@ public class ZnamenitostServiceImpl implements ZnamenitostService{
         }
     }
 
-    @Override
-    public Znamenitost createZnamenitost(Znamenitost znamenitost) {
-        return this.znamenitostRepository.save(znamenitost);
-    }
+
 
     @Override
     public Znamenitost updateZnamenitost(Znamenitost znamenitost) {

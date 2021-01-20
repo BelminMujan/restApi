@@ -1,21 +1,21 @@
-package model;
+package task.job.restApi.model;
 
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Znamenitosti")
+@Table(name="Znamenitost")
 public class Znamenitost {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "Naziv")
+    @Column(name="naziv")
     private String naziv;
-    @Column(name = "Opis")
+    @Column(name="opis")
     private String opis;
-    @Column(name = "Latitude")
+    @Column(name="latitude")
     private double latitude;
-    @Column(name = "Longitude")
+    @Column(name="longitude")
     private double longitude;
     public Znamenitost(){}
     public Znamenitost(String naziv, String opis, double latitude, double longitude) {

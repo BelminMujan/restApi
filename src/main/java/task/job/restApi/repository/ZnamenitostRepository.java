@@ -1,6 +1,6 @@
-package repository;
+package task.job.restApi.repository;
 
-import model.Znamenitost;
+import task.job.restApi.model.Znamenitost;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ZnamenitostRepository extends JpaRepository<Znamenitost, Long>{

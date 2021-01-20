@@ -1,6 +1,6 @@
-package service;
+package task.job.restApi.service;
 
-import model.Znamenitost;
+import task.job.restApi.model.Znamenitost;
 
 import java.util.List;
 
