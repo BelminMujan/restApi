@@ -3,6 +3,7 @@ package task.job.restApi.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import task.job.restApi.exceptions.ResourceNotFoundException;
 import task.job.restApi.model.Rating;
 import task.job.restApi.model.Znamenitost;
 import task.job.restApi.repository.RatingRepository;
@@ -30,14 +31,19 @@ public class RatingServiceImpl implements RatingService {
         return znamenitostRatings;
     }
 
-    @Override
-    public List<Rating> getAllRatings() {
-        return this.ratingRepository.findAll();
-    }
 
     @Override
-    public Rating updateRatingForZnamenitost(long ratingId) {
-        return null;
+    public Rating updateRating(Rating rating) {
+        Optional<Rating> ratingDb=this.ratingRepository.findById(rating.getId());
+        if (ratingDb.isPresent()){
+            Rating ratingUpdate=ratingDb.get();
+            ratingUpdate.setId(rating.getId());
+            ratingUpdate.setOcjena(rating.getOcjena());
+            ratingUpdate.setZnamenitostId(rating.getZnamenitostId());
+            return ratingUpdate;
+        }else{
+            throw new ResourceNotFoundException("NIje pronadjena znamenitost sa id :"+rating.getId());
+        }
     }
 
     @Override
@@ -47,7 +53,12 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public void deleteRating(long ratingId) {
-
+        Optional<Rating> ratingDb= this.ratingRepository.findById(ratingId);
+        if(ratingDb.isPresent()){
+            this.ratingRepository.delete(ratingDb.get());
+        }else{
+            throw new ResourceNotFoundException("Nije pronadjen rating sa id: "+ ratingId);
+        }
     }
 
     @Override

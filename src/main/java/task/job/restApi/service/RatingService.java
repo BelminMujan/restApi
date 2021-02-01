@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface RatingService {
     List<Rating> getRatingsForZnamenitost(long znamenitostId);
-    List<Rating> getAllRatings();
-    Rating updateRatingForZnamenitost(long ratingId);
+    Rating updateRating(Rating rating);
     Rating rateZnamenitost(Rating ocjena);
     void deleteRating(long ratingId);
     void deleteZnamenitostRatings(long znamenitostId);

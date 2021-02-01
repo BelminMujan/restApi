@@ -17,6 +17,8 @@ public class Znamenitost {
     private double latitude;
     @Column(name="longitude")
     private double longitude;
+    @Column(name="opcinaId")
+    private Long opcinaId;
     public Znamenitost(){}
     public Znamenitost(String naziv, String opis, double latitude, double longitude) {
         this.naziv = naziv;

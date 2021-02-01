@@ -31,6 +31,10 @@ public class Rating {
         return ocjena;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setOcjena(float ocjena) {
         this.ocjena = ocjena;
     }
