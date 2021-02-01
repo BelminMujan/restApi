@@ -53,7 +53,10 @@ public class ZnamenitostController {
         this.znamenitostService.deleteZnamenitost(id);
 
     }
-
+    @PutMapping("/znamenitosti/{id}")
+    public ResponseEntity<Znamenitost> updateZnamenitost(@RequestBody Znamenitost znamenitost){
+        return ResponseEntity.ok().body(this.znamenitostService.updateZnamenitost(znamenitost));
+    }
 
 
 
@@ -63,10 +66,19 @@ public class ZnamenitostController {
     public ResponseEntity<List<Opcina>> getAllOpcine(){
         return ResponseEntity.ok().body(this.opcinaService.getAllOpcine());
     }
+    @GetMapping("/opcina/{id}")
+    public ResponseEntity<Opcina> getOpcina(@PathVariable long id){
+        return ResponseEntity.ok().body(this.opcinaService.getOpcina(id));
+    }
 
     @PostMapping("/opcina")
     public ResponseEntity<Opcina> addOpcina(@RequestBody Opcina opcina){
         return ResponseEntity.ok().body(this.opcinaService.addOpcina(opcina));
+    }
+
+    @DeleteMapping("/opcina/{id}")
+    public void deleteOpcina(@PathVariable long id){
+        this.opcinaService.deleteOpcina(id);
     }
 
 

@@ -61,4 +61,12 @@ public class Znamenitost {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+    public Long getOpcinaId() {
+        return opcinaId;
+    }
+
+    public void setOpcinaId(Long opcinaId) {
+        this.opcinaId = opcinaId;
+    }
 }

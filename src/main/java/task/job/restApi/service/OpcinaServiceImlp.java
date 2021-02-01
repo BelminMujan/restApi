@@ -23,6 +23,16 @@ public class OpcinaServiceImlp implements OpcinaService {
     }
 
     @Override
+    public Opcina getOpcina(long id) {
+        Optional<Opcina> opcinaDb=this.opcinaRepository.findById(id);
+        if(opcinaDb.isPresent()){
+            return opcinaDb.get();
+        }else{
+            throw new ResourceNotFoundException("Ne postoji opcina sa id: "+id);
+        }
+    }
+
+    @Override
     public Opcina addOpcina(Opcina opcina) {
         return this.opcinaRepository.save(opcina);
     }
